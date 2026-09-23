@@ -563,25 +563,6 @@ section {
 }
 
 
-@media (prefers-reduced-motion: reduce) {
-
-    .about-kitten,
-    .about-kitten.is-visible,
-    .about-kitten.is-visible img,
-    .about-kitten.is-visible::before,
-    .about-kitten.is-visible::after {
-
-        animation: none;
-
-        opacity: 1;
-
-        transform: none;
-
-    }
-
-}
-
-
 /* =========================
    SKILLS
 ========================= */
