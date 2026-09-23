@@ -1,0 +1,975 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
+
+:root {
+
+    --background: #17122e;
+
+    --panel: #211936;
+
+    --pink: #ffb7d5;
+
+    --pink-dark: #ff9fc8;
+
+    --purple: #c9c4ff;
+
+    --white: #fff8f1;
+
+    --text: #d9d4eb;
+
+    --muted: #9c94b3;
+
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    margin: 0;
+
+    background: var(--background);
+
+    color: var(--white);
+
+    font-family: 'DM Mono', monospace;
+
+    overflow-x: hidden;
+
+}
+
+
+main {
+
+    position: relative;
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 20px;
+
+}
+
+
+/* =========================
+   STARS
+========================= */
+
+.stars {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.75;
+
+    background-image:
+
+        radial-gradient(
+            circle at 12% 14%,
+            white 0 1px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle at 87% 21%,
+            #ffb7d5 0 1.5px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 72% 66%,
+            white 0 1px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle at 19% 76%,
+            #c9c4ff 0 1px,
+            transparent 1.5px
+        );
+
+    background-size:
+
+        240px 190px,
+        320px 270px,
+        250px 220px,
+        340px 290px;
+
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    min-height: 90vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+
+.orbit {
+
+    width: 210px;
+
+    height: 210px;
+
+    border:
+        1px solid rgba(255,255,255,0.2);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    margin-bottom: 28px;
+
+}
+
+
+.orbit::before {
+
+    content: "";
+
+    width: 14px;
+
+    height: 14px;
+
+    border-radius: 50%;
+
+    background: var(--pink);
+
+    position: absolute;
+
+    top: 30%;
+
+    left: 8%;
+
+}
+
+
+.orbit::after {
+
+    content: "";
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: var(--purple);
+
+    position: absolute;
+
+    bottom: 23%;
+
+    right: 10%;
+
+}
+
+
+.profile {
+
+    font-size: 65px;
+
+    color: var(--pink);
+
+    text-shadow:
+        0 0 25px rgba(255,183,213,0.6);
+
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.small-title {
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: var(--pink);
+
+}
+
+
+h1,
+h2,
+h3 {
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+}
+
+
+h1 {
+
+    font-size:
+        clamp(
+            50px,
+            9vw,
+            90px
+        );
+
+    line-height: 0.95;
+
+    margin: 12px 0;
+
+}
+
+
+h1 span {
+
+    color: var(--pink);
+
+    font-style: italic;
+
+}
+
+
+h2 {
+
+    font-size:
+        clamp(
+            38px,
+            6vw,
+            58px
+        );
+
+    line-height: 1;
+
+    margin:
+        10px
+        0
+        28px;
+
+}
+
+
+.intro {
+
+    max-width: 480px;
+
+    color: var(--text);
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.button {
+
+    margin-top: 18px;
+
+    padding:
+        12px
+        20px;
+
+    border:
+        1px solid var(--pink);
+
+    border-radius: 30px;
+
+    color: white;
+
+    text-decoration: none;
+
+}
+
+
+.button:hover {
+
+    background: var(--pink);
+
+    color: var(--background);
+
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+
+    padding:
+        75px
+        0;
+
+    border-top:
+        1px solid rgba(255,255,255,0.13);
+
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+
+    max-width: 650px;
+
+}
+
+
+.about p {
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-size: 22px;
+
+    color: var(--text);
+
+    line-height: 1.6;
+
+}
+
+
+.about strong {
+
+    color: var(--pink);
+
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+}
+
+
+.skill {
+
+    min-height: 180px;
+
+    padding: 18px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border:
+        1px solid rgba(255,255,255,0.13);
+
+}
+
+
+.skill span {
+
+    font-size: 11px;
+
+    color: #ffd6aa;
+
+}
+
+
+.skill h3 {
+
+    font-size: 24px;
+
+    margin:
+        45px
+        0
+        8px;
+
+}
+
+
+.skill p {
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    color: var(--text);
+
+}
+
+
+/* =========================
+   MUSIC SECTION
+========================= */
+
+.music-section {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        360px;
+
+    gap: 55px;
+
+    align-items: center;
+
+}
+
+
+.music-text p {
+
+    max-width: 420px;
+
+    line-height: 1.7;
+
+    color: var(--text);
+
+}
+
+
+/* =========================
+   PLAYER
+========================= */
+
+.music-player {
+
+    width: 100%;
+
+    padding: 20px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #2a2142,
+            #1d1730
+        );
+
+    border:
+        1px solid rgba(255,183,213,0.35);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,0.3);
+
+}
+
+
+/* =========================
+   TOP ROW
+========================= */
+
+.player-main {
+
+    display: grid;
+
+    grid-template-columns:
+        92px
+        1fr;
+
+    gap: 16px;
+
+    align-items: center;
+
+}
+
+
+/* ALBUM */
+
+.album-cover {
+
+    width: 92px;
+
+    height: 92px;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    background: #2a2142;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.35);
+
+}
+
+
+.album-cover img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+}
+
+
+/* SONG INFO */
+
+.song-info {
+
+    min-width: 0;
+
+}
+
+
+.now-playing {
+
+    margin:
+        0
+        0
+        7px;
+
+    color: var(--pink);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+.song-info h3 {
+
+    margin: 0;
+
+    font-size: 26px;
+
+    line-height: 1.1;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+}
+
+
+#song-artist {
+
+    margin:
+        6px
+        0
+        0;
+
+    color: #b9b2cb;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+}
+
+
+/* =========================
+   TIME
+========================= */
+
+.time-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 20px;
+
+    margin-bottom: 8px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-bar {
+
+    width: 100%;
+
+    height: 6px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+}
+
+
+.progress {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--pink-dark),
+            var(--purple)
+        );
+
+}
+
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 22px;
+
+    margin-top: 24px;
+
+}
+
+
+.controls button {
+
+    border: none;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+.controls svg {
+
+    width: 18px;
+
+    height: 18px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+}
+
+
+/* PREV / NEXT */
+
+.control-button {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    color: #e4deef;
+
+}
+
+
+.control-button:hover {
+
+    background:
+        rgba(255,255,255,0.15);
+
+    transform: translateY(-2px);
+
+}
+
+
+/* PLAY */
+
+.play-button {
+
+    width: 62px;
+
+    height: 62px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffbfd9,
+            #ff9fc8
+        );
+
+    color: #21172f;
+
+    box-shadow:
+        0 10px 26px rgba(255,183,213,0.3);
+
+}
+
+
+.play-button:hover {
+
+    transform: scale(1.05);
+
+}
+
+
+.play-button svg {
+
+    width: 22px;
+
+    height: 22px;
+
+    fill: currentColor;
+
+    stroke: none;
+
+}
+
+
+/* =========================
+   COUNTER
+========================= */
+
+.song-counter {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 18px;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+}
+
+
+.counter-line {
+
+    width: 32px;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,0.25);
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    border-top:
+        1px solid rgba(255,255,255,0.13);
+
+    padding:
+        30px
+        0;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    main {
+
+        padding: 18px;
+
+    }
+
+
+    .hero {
+
+        min-height: 88vh;
+
+    }
+
+
+    .orbit {
+
+        width: 180px;
+
+        height: 180px;
+
+    }
+
+
+    .profile {
+
+        font-size: 55px;
+
+    }
+
+
+    section {
+
+        padding:
+            60px
+            0;
+
+    }
+
+
+    .skills {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .skill {
+
+        min-height: 150px;
+
+    }
+
+
+    .skill h3 {
+
+        margin-top: 30px;
+
+    }
+
+
+    .about p {
+
+        font-size: 19px;
+
+    }
+
+
+    .music-section {
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+    }
+
+
+    .music-player {
+
+        max-width: 360px;
+
+        margin: auto;
+
+    }
+
+
+    .player-main {
+
+        grid-template-columns:
+            78px
+            1fr;
+
+    }
+
+
+    .album-cover {
+
+        width: 78px;
+
+        height: 78px;
+
+    }
+
+
+    .song-info h3 {
+
+        font-size: 22px;
+
+    }
+
+}
