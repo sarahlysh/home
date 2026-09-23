@@ -37,6 +37,9 @@ const songNumber =
 const songTotal =
     document.getElementById("song-total");
 
+const musicPlayer =
+    document.querySelector(".music-player");
+
 
 /* =========================
    PLAYLIST
@@ -45,26 +48,26 @@ const songTotal =
 const playlist = [
 
     {
-        title: "Apocalypse",
-        artist: "Cigarettes After Sex",
-        audio: "apocal.mp3",
-        cover: "cgr.jpg"
+        title: "About You",
+        artist: "The 1975",
+        audio: "abtu.mp3",
+        cover: "abtu.jpg"
     },
 
     {
-        title: "Let Down",
-        artist: "Radiohead",
-        audio: "letdown.mp3",
-        cover: "ltdn.jpg"
+        title: "The Subway",
+        artist: "Chappell Roan",
+        audio: "sbwy.mp3",
+        cover: "pwo.jpg"
     },
 
-    {
+/*    {
         title: "Song Three",
         artist: "Artist Name",
         audio: "song3.mp3",
         cover: "cover3.jpg"
     }
-
+*/
 ];
 
 
@@ -167,6 +170,8 @@ function playSong() {
 
     music.play();
 
+    musicPlayer.classList.add("is-playing");
+
     playButton.innerHTML =
         pauseIcon;
 
@@ -180,6 +185,8 @@ function playSong() {
 function pauseSong() {
 
     music.pause();
+
+    musicPlayer.classList.remove("is-playing");
 
     playButton.innerHTML =
         playIcon;
@@ -398,8 +405,51 @@ progressBar.addEventListener(
 
 music.addEventListener(
     "ended",
-    nextSong
+    function () {
+
+        musicPlayer.classList.remove("is-playing");
+
+        nextSong();
+
+    }
 );
+
+
+/* =========================
+   ABOUT KITTEN POP-UP
+========================= */
+
+const aboutKitten =
+    document.querySelector(".about-kitten");
+
+
+if (aboutKitten) {
+
+    const kittenObserver =
+        new IntersectionObserver(
+            function (entries, observer) {
+
+                if (!entries[0].isIntersecting) {
+
+                    return;
+
+                }
+
+
+                aboutKitten.classList.add("is-visible");
+
+                observer.unobserve(aboutKitten);
+
+            },
+            {
+                threshold: 0.3
+            }
+        );
+
+
+    kittenObserver.observe(aboutKitten);
+
+}
 
 
 /* =========================

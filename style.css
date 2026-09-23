@@ -345,6 +345,18 @@ section {
    ABOUT
 ========================= */
 
+.about-layout {
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) 290px;
+
+    align-items: center;
+
+    gap: 36px;
+
+}
+
 .about {
 
     max-width: 650px;
@@ -370,6 +382,200 @@ section {
 .about strong {
 
     color: var(--pink);
+
+}
+
+
+.about-kitten {
+
+    margin: 0;
+
+    opacity: 0;
+
+    transform: translateY(42px) scale(0.72);
+
+    position: relative;
+
+    cursor: pointer;
+
+}
+
+
+.about-kitten.is-visible {
+
+    animation: kitten-pop 650ms cubic-bezier(0.18, 0.9, 0.3, 1.25) forwards;
+
+}
+
+
+.about-kitten img {
+
+    display: block;
+
+    width: 100%;
+
+    filter: drop-shadow(0 12px 18px rgba(0, 0, 0, 0.2));
+
+    transition: transform 220ms ease-out;
+
+}
+
+
+.about-kitten.is-visible img {
+
+    animation: kitten-float 3.4s ease-in-out 700ms infinite;
+
+}
+
+
+.about-kitten::before,
+.about-kitten::after {
+
+    color: var(--pink);
+
+    content: "✦";
+
+    font-size: 19px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    position: absolute;
+
+    text-shadow: 0 0 12px rgba(255, 183, 213, 0.8);
+
+}
+
+
+.about-kitten::before {
+
+    left: 4%;
+
+    top: 28%;
+
+}
+
+
+.about-kitten::after {
+
+    bottom: 22%;
+
+    color: var(--purple);
+
+    right: 2%;
+
+}
+
+
+.about-kitten.is-visible::before,
+.about-kitten.is-visible::after {
+
+    animation: kitten-sparkle 1.8s ease-in-out 800ms infinite;
+
+}
+
+
+.about-kitten.is-visible::after {
+
+    animation-delay: 1.35s;
+
+}
+
+
+.about-kitten:hover img {
+
+    animation: none;
+
+    transform: rotate(-4deg) scale(1.06);
+
+}
+
+
+@keyframes kitten-pop {
+
+    0% {
+
+        opacity: 0;
+
+        transform: translateY(42px) scale(0.72);
+
+    }
+
+    75% {
+
+        opacity: 1;
+
+        transform: translateY(-7px) scale(1.04);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+
+    }
+
+}
+
+
+@keyframes kitten-float {
+
+    0%,
+    100% {
+
+        transform: translateY(0);
+
+    }
+
+    50% {
+
+        transform: translateY(-7px);
+
+    }
+
+}
+
+
+@keyframes kitten-sparkle {
+
+    0%,
+    100% {
+
+        opacity: 0.15;
+
+        transform: scale(0.7) rotate(0deg);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform: scale(1.2) rotate(22deg);
+
+    }
+
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .about-kitten,
+    .about-kitten.is-visible,
+    .about-kitten.is-visible img,
+    .about-kitten.is-visible::before,
+    .about-kitten.is-visible::after {
+
+        animation: none;
+
+        opacity: 1;
+
+        transform: none;
+
+    }
 
 }
 
@@ -558,6 +764,17 @@ section {
 }
 
 
+.now-playing-row {
+
+    align-items: center;
+
+    display: flex;
+
+    gap: 8px;
+
+}
+
+
 .now-playing {
 
     margin:
@@ -570,6 +787,90 @@ section {
     font-size: 9px;
 
     letter-spacing: 2px;
+
+}
+
+
+.equalizer {
+
+    align-items: end;
+
+    display: flex;
+
+    gap: 3px;
+
+    height: 13px;
+
+    opacity: 0.45;
+
+}
+
+
+.equalizer i {
+
+    background: var(--pink);
+
+    border-radius: 999px;
+
+    display: block;
+
+    height: 4px;
+
+    transform-origin: bottom;
+
+    width: 3px;
+
+}
+
+
+.music-player.is-playing .equalizer {
+
+    opacity: 1;
+
+}
+
+
+.music-player.is-playing .equalizer i {
+
+    animation: equalizer-bounce 700ms ease-in-out infinite alternate;
+
+}
+
+
+.music-player.is-playing .equalizer i:nth-child(2) {
+
+    animation-delay: 160ms;
+
+}
+
+
+.music-player.is-playing .equalizer i:nth-child(3) {
+
+    animation-delay: 280ms;
+
+}
+
+
+.music-player.is-playing .equalizer i:nth-child(4) {
+
+    animation-delay: 90ms;
+
+}
+
+
+@keyframes equalizer-bounce {
+
+    from {
+
+        transform: scaleY(1);
+
+    }
+
+    to {
+
+        transform: scaleY(3.2);
+
+    }
 
 }
 
@@ -926,6 +1227,24 @@ footer {
     .about p {
 
         font-size: 19px;
+
+    }
+
+
+    .about-layout {
+
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+
+    }
+
+
+    .about-kitten {
+
+        width: min(230px, 68vw);
+
+        margin: 8px auto 0;
 
     }
 
