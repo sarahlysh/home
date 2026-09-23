@@ -349,7 +349,7 @@ section {
 
     display: grid;
 
-    grid-template-columns: minmax(0, 1fr) 290px;
+    grid-template-columns: minmax(0, 1fr) 230px;
 
     align-items: center;
 
@@ -390,9 +390,11 @@ section {
 
     margin: 0;
 
+    max-width: 230px;
+
     opacity: 0;
 
-    transform: translateY(42px) scale(0.72);
+    transform: translateY(28px) scale(0.84);
 
     position: relative;
 
@@ -498,7 +500,7 @@ section {
 
         opacity: 0;
 
-        transform: translateY(42px) scale(0.72);
+        transform: translateY(28px) scale(0.84);
 
     }
 
@@ -506,7 +508,7 @@ section {
 
         opacity: 1;
 
-        transform: translateY(-7px) scale(1.04);
+        transform: translateY(-4px) scale(1.015);
 
     }
 
@@ -1242,7 +1244,7 @@ footer {
 
     .about-kitten {
 
-        width: min(230px, 68vw);
+        width: min(165px, 48vw);
 
         margin: 8px auto 0;
 
