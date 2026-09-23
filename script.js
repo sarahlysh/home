@@ -425,29 +425,40 @@ const aboutKitten =
 
 if (aboutKitten) {
 
-    const kittenObserver =
-        new IntersectionObserver(
-            function (entries, observer) {
+    if ("IntersectionObserver" in window) {
 
-                if (!entries[0].isIntersecting) {
+        const kittenObserver =
+            new IntersectionObserver(
+                function (entries, observer) {
 
-                    return;
+                    if (!entries[0].isIntersecting) {
 
+                        return;
+
+                    }
+
+
+                    aboutKitten.classList.add("is-visible");
+
+                    observer.unobserve(aboutKitten);
+
+                },
+                {
+                    rootMargin: "0px 0px -8% 0px",
+                    threshold: 0.05
                 }
+            );
 
 
-                aboutKitten.classList.add("is-visible");
+        kittenObserver.observe(aboutKitten);
 
-                observer.unobserve(aboutKitten);
+    }
 
-            },
-            {
-                threshold: 0.3
-            }
-        );
+    else {
 
+        aboutKitten.classList.add("is-visible");
 
-    kittenObserver.observe(aboutKitten);
+    }
 
 }
 
